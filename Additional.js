@@ -1,4 +1,22 @@
 var typeMessage = ( function ( velocity ) {
+  let container = 
+      document.body.appendChild (
+          document.createElement ( "h3" )
+      )
+  container.style = `color: magenta;`
+  container.id = "demo"
+  var index = 0
+  return function ( message ) {
+      setTimeout( function () {
+          container.textContent += message[index ++]
+          return index === message.length ? container : typeMessage(`Welcome to the hell`)
+        }, 1000
+      )}
+})( 1 )
+
+typeMessage ( `Welcome to the hell` )
+
+/*var typeMessage = ( function ( velocity ) {
     const container = document.body.appendChild (document.createElement ( "h4" ))
     var index = 0
     return function ( message ) {
@@ -14,4 +32,4 @@ var typeMessage = ( function ( velocity ) {
     }
   })( 1 )
   
-  typeMessage ( `Welcome to the hell` )
+  typeMessage ( `Welcome to the hell` )*/
